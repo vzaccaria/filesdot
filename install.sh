@@ -1,3 +1,9 @@
+# Author: Vittorio Zaccaria
+
+# this script assumes you have already installed Nix with a command like
+# curl -L https://nixos.org/nix/install | sh
+
+
 # source nix
 . ~/.nix-profile/etc/profile.d/nix.sh
 
@@ -7,6 +13,14 @@ nix-env -iA \
 	nixpkgs.neovim \
 	nixpkgs.tmux \
 	nixpkgs.zsh \
-	nixpkgs.stow 
+	nixpkgs.stow \
+	nixpkgs.curl \
+	nixpkgs.nodejs
 
+stow git
+stow neovim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# nstall neovim plugins
+nvim --headless +PlugInstall +qall
 

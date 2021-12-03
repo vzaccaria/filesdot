@@ -1,12 +1,14 @@
-# My dotfiles (lean)
+# Mini dotfiles repo
 
-Lean configuration to be used when setting up any machine.
-Based on Nix; hoping it will not rear its head.
+Mini configuration to be used when setting up any machine.
+
+On Linux it is based on Nix; hoping it will not rear its head.
+On Mac it is based on brew, where supported
 
 # Installation
 
 Just run the `install.sh` script; it assumes that you have a working
-installation of Nix.
+installation of Nix on Linux.
 
 # Inspirations
 

@@ -19,7 +19,8 @@ nix-env -iA \
 	nixpkgs.fzf \
         nixpkgs.antibody \
         nixpkgs.coreutils \
-        nixpkgs.exa
+        nixpkgs.exa \
+        nixpkgs.man
 
 stow git
 stow neovim

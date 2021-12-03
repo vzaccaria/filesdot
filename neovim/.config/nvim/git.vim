@@ -30,6 +30,6 @@ let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
 let g:gitgutter_override_sign_column_highlight = 1
-highlight SignColumn guibg=bg 
-highlight SignColumn ctermbg=bg
+" highlight SignColumn guibg=bg 
+" highlight SignColumn ctermbg=bg
 

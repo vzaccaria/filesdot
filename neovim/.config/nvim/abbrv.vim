@@ -1,0 +1,46 @@
+ab bacio 😘
+ab eheh 😁
+ab uhm 🤔
+ab perche' perché
+ab poiche' poiché  
+ab finche' finché  
+ab e' è
+ab E' È
+ab cioe cioè
+ab puo può
+ab nonappena non appena
+ab ce' c'è
+ab qual'e' qual è
+ab gia' già
+ab sara' sarà
+ab verra' verrà
+ab avra' avrà
+ab dovra' dovrà
+ab realta' realtà
+ab verita' verità
+ab citta' città
+ab unita' unità
+ab disponibilita' disponibilità
+ab attivita' attività
+ab Attivita' Attività
+ab potra' potrà
+ab avro' avrò
+ab saro' sarò
+ab potro' potrò
+ab pero' però
+ab puo' può
+ab pero' però
+ab avro' avrò
+ab faro' farò
+ab dovro' dovrò
+ab mandero' manderò
+ab vedro' vedrò
+ab rivedro' rivedrò
+ab piu' più
+ab lunedi lunedì
+ab cosi così
+ab martedi martedì
+ab mercoledi mercoledì
+ab giovedi giovedì
+ab venerdi venerdì
+

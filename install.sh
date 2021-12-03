@@ -25,6 +25,7 @@ then
                 nixpkgs.antibody \
                 nixpkgs.coreutils \
                 nixpkgs.exa
+                nixpkgs.man
 else 
         # 'Darwin'
         brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa

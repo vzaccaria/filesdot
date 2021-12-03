@@ -1,25 +1,34 @@
 # Author: Vittorio Zaccaria
 
-# this script assumes you have already installed Nix with a command like
-# curl -L https://nixos.org/nix/install | sh
+# Linux 
+# -----
 
+if [[ `uname -s` = 'Linux' ]] 
+then  
 
-# source nix
-. ~/.nix-profile/etc/profile.d/nix.sh
+        # this script assumes you have already installed Nix with a command like
+        # curl -L https://nixos.org/nix/install | sh
 
-# install packages
-nix-env -iA \
-	nixpkgs.git \
-	nixpkgs.neovim \
-	nixpkgs.tmux \
-	nixpkgs.zsh \
-	nixpkgs.stow \
-	nixpkgs.curl \
-	nixpkgs.nodejs \
-	nixpkgs.fzf \
-        nixpkgs.antibody \
-        nixpkgs.coreutils \
-        nixpkgs.exa
+        # source nix
+        . ~/.nix-profile/etc/profile.d/nix.sh
+
+        # install packages
+        nix-env -iA \
+                nixpkgs.git \
+                nixpkgs.neovim \
+                nixpkgs.tmux \
+                nixpkgs.zsh \
+                nixpkgs.stow \
+                nixpkgs.curl \
+                nixpkgs.nodejs \
+                nixpkgs.fzf \
+                nixpkgs.antibody \
+                nixpkgs.coreutils \
+                nixpkgs.exa
+else 
+        # 'Darwin'
+        brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa
+fi
 
 stow git
 stow neovim

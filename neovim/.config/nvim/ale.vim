@@ -35,28 +35,37 @@ nmap <silent> <C-h> <Plug>(ale_detail)
 "\})
 
 
-let g:ale_linters = {}
 
-""hide cryptonite for relation calculus
-"let g:ale_linters.haskell = [ 'stack-ghc-local', 'hlint']
-"" See here https://blog.jez.io/haskell-development-with-neovim/
-""let g:ale_linters.haskell = [ 'stack-ghc', 'hlint']
+if g:os == "Darwin" 
 
-let g:ale_linters.yaml = ['yamllint']
-let g:ale_linters.verilog = ['iverilog']
-" let g:ale_linters.tex = ['proselint', 'write-good', 'vzredpen']
+        let g:ale_fixers = {
+        \   'javascript': ['prettier'],
+        \   'haskell': ['stylish-haskell'],
+        \   'html': ['prettier'],
+        \   'markdown': ['prettier'],
+        \   'css': ['prettier'],
+        \   'json': ['prettier'],
+        \   'c': ['clang-format'],
+        \   'asm': ['gcc'],
+        \   'cpp': ['clang-format'],
+        \}
 
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'haskell': ['stylish-haskell'],
-\   'html': ['prettier'],
-\   'markdown': ['prettier'],
-\   'css': ['prettier'],
-\   'json': ['prettier'],
-\   'c': ['clang-format'],
-\   'asm': ['gcc'],
-\   'cpp': ['clang-format'],
-\}
+        let g:ale_javascript_prettier_options = '--prose-wrap always'
+        let g:ale_fix_on_save = 1
+        let g:ale_linters.yaml = ['yamllint']
+        let g:ale_linters.verilog = ['iverilog']
+        " let g:ale_linters.tex = ['proselint', 'write-good', 'vzredpen']
 
-let g:ale_javascript_prettier_options = '--prose-wrap always'
-let g:ale_fix_on_save = 1
+        let g:ale_linters = {}
+
+        ""hide cryptonite for relation calculus
+        "let g:ale_linters.haskell = [ 'stack-ghc-local', 'hlint']
+        "" See here https://blog.jez.io/haskell-development-with-neovim/
+        ""let g:ale_linters.haskell = [ 'stack-ghc', 'hlint']
+
+elseif g:os == "Linux" 
+
+endif
+
+
+

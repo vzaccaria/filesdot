@@ -21,17 +21,20 @@ call plug#end()
 source ~/.config/nvim/common-sets.vim
 source ~/.config/nvim/common-keymaps.vim
 
-" Common plugin settings
+" Common plugin settings (they must check for os version inside!
 source ~/.config/nvim/coc.vim 
 source ~/.config/nvim/abbrv.vim 
 source ~/.config/nvim/git.vim 
+source ~/.config/nvim/ale.vim
+source ~/.config/nvim/tex.vim
 
 colorscheme gruvbox
 
+" Generic, os specific sets
 if g:os == "Darwin" 
-        source ~/.config/nvim/darwin-sets.vim
-        source ~/.config/nvim/ale.vim
-        source ~/.config/nvim/tex.vim
+        let g:markdown_folding = 1
+        let g:rustfmt_autosave = 1
+elseif g:os == "Linux" 
 endif
 
 

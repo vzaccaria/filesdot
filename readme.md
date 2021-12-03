@@ -1,5 +1,6 @@
-# My dotfiles, reinvented
+# My dotfiles (lean)
 
+Lean configuration to be used when setting up any machine.
 Based on Nix; hoping it will not rear its head.
 
 # Installation

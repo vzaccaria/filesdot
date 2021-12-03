@@ -20,29 +20,29 @@ set secure
 " secure disallows the use of :autocmd, shell and write commands in local .vimrc files.
 
 call plug#begin() 
+
+" Fundamental plugins
+
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
 
-Plug 'neovimhaskell/haskell-vim'
-" This has huge problems with cpu hogging
-" Plug 'parsonsmatt/intero-neovim'
-Plug 'pangloss/vim-javascript'
-Plug 'alx741/vim-hindent'
-
-" Languages
-Plug 'jceb/vim-orgmode'
-Plug 'rust-lang/rust.vim'
+" Completion plugin of choice
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Languages
+" Plug 'w0rp/ale'
+" Plug 'jceb/vim-orgmode'
+" Plug 'rust-lang/rust.vim'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'parsonsmatt/intero-neovim'
+" Plug 'pangloss/vim-javascript'
+" Plug 'alx741/vim-hindent'
+" Plug 'google/vim-jsonnet'
 
-" Themes
-Plug 'morhetz/gruvbox'
-"Plug 'NLKNguyen/papercolor-theme'
 
-" text-objects:
-" 
+" Other text related plugins plugins
 " ae        LaTeX environments (e.g. \begin{itemize})
 " ac        commands
 " i$        inline math structure
@@ -50,7 +50,7 @@ Plug 'morhetz/gruvbox'
 " dse|cse   delete/change the surrounding environment
 " dsc|csc   delete/change the surrounding command
 " c-x c-o   completion
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 
 " +         to enlarge the visual selection
 " _         to shrink it 
@@ -74,16 +74,9 @@ Plug 'tpope/vim-commentary'
 
 Plug 'easymotion/vim-easymotion'
 
-" gt        to set title case
-" gT        to set title case whole line
-Plug 'christoomey/vim-titlecase'
 
 " C-n       multiple times then c, I, A, d
 " Plug 'terryma/vim-multiple-cursors'
-
-
-Plug 'google/vim-jsonnet'
-                        
 
 " For using vim in the browser
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -113,8 +106,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
-
-
 
 Plug 'mbbill/undotree'
 call plug#end()
@@ -178,24 +169,24 @@ vmap <leader>' S'<ESC>
 nnoremap <leader>sr :%s/<C-R><C-W>//gI<left><left><left>
 
 
-let g:tex_flavor = 'latex'
+" let g:tex_flavor = 'latex'
 
-let g:vimtex_compiler_latexmk = {
-    \ 'options' : [
-    \   '-pdf',
-    \   '-shell-escape',
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+" let g:vimtex_compiler_latexmk = {
+"     \ 'options' : [
+"     \   '-pdf',
+"     \   '-shell-escape',
+"     \   '-verbose',
+"     \   '-file-line-error',
+"     \   '-synctex=1',
+"     \   '-interaction=nonstopmode',
+"     \ ],
+"     \}
 
 
 
 " nmap <C-a> <C-w>
 
-nnoremap <Leader>d :ALEDetail<cr>
+" nnoremap <Leader>d :ALEDetail<cr>
 
 let g:EasyMotion_smartcase = 1
 
@@ -251,9 +242,9 @@ inoremap § <Esc>
 inoremap jk <Esc>
 
 " ALE keybindings
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nmap <silent> <C-h> <Plug>(ale_detail)
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" nmap <silent> <C-h> <Plug>(ale_detail)
 
 " When editing mails from neomutt use markdown
 augroup filetypedetect
@@ -262,14 +253,14 @@ augroup END
 
 " let g:markdown_folding = 1
 
-if exists('*ale#linter#Define')
-call ale#linter#Define('tex', {
-\   'name': 'vzredpen',
-\   'executable': 'vzredpen',
-\   'command': 'vzredpen -f latex -r json %t',
-\   'callback': 'ale#handlers#redpen#HandleRedpenOutput',
-\})
-endif
+" if exists('*ale#linter#Define')
+" call ale#linter#Define('tex', {
+" \   'name': 'vzredpen',
+" \   'executable': 'vzredpen',
+" \   'command': 'vzredpen -f latex -r json %t',
+" \   'callback': 'ale#handlers#redpen#HandleRedpenOutput',
+" \})
+" endif
 
 " if exists('*ale#linter#Define')
 " call ale#linter#Define('lhaskell', {
@@ -281,41 +272,41 @@ endif
 " \})
 " endif
 
-call ale#linter#Define('haskell', {
-\   'name': 'stack_ghc_local',
-\   'aliases': ['stack-ghc-local'],
-\   'output_stream': 'stderr',
-\   'executable': 'stack',
-\   'command': 'stack ghc -- -fno-code -v0 %t -hide-package cryptonite',
-\   'callback': 'ale#handlers#haskell#HandleGHCFormat',
-\})
+"call ale#linter#Define('haskell', {
+"\   'name': 'stack_ghc_local',
+"\   'aliases': ['stack-ghc-local'],
+"\   'output_stream': 'stderr',
+"\   'executable': 'stack',
+"\   'command': 'stack ghc -- -fno-code -v0 %t -hide-package cryptonite',
+"\   'callback': 'ale#handlers#haskell#HandleGHCFormat',
+"\})
 
 
-let g:ale_linters = {}
+"let g:ale_linters = {}
 
-"hide cryptonite for relation calculus
-let g:ale_linters.haskell = [ 'stack-ghc-local', 'hlint']
-" See here https://blog.jez.io/haskell-development-with-neovim/
-"let g:ale_linters.haskell = [ 'stack-ghc', 'hlint']
-let g:ale_linters.yaml = ['yamllint']
-let g:ale_linters.verilog = ['iverilog']
-let g:ale_linters.tex = ['proselint', 'write-good', 'vzredpen']
+""hide cryptonite for relation calculus
+"let g:ale_linters.haskell = [ 'stack-ghc-local', 'hlint']
+"" See here https://blog.jez.io/haskell-development-with-neovim/
+""let g:ale_linters.haskell = [ 'stack-ghc', 'hlint']
+"let g:ale_linters.yaml = ['yamllint']
+"let g:ale_linters.verilog = ['iverilog']
+"let g:ale_linters.tex = ['proselint', 'write-good', 'vzredpen']
 
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'haskell': ['stylish-haskell'],
-\   'html': ['prettier'],
-\   'markdown': ['prettier'],
-\   'css': ['prettier'],
-\   'json': ['prettier'],
-\   'c': ['clang-format'],
-\   'asm': ['gcc'],
-\   'cpp': ['clang-format'],
-\}
+"let g:ale_fixers = {
+"\   'javascript': ['prettier'],
+"\   'haskell': ['stylish-haskell'],
+"\   'html': ['prettier'],
+"\   'markdown': ['prettier'],
+"\   'css': ['prettier'],
+"\   'json': ['prettier'],
+"\   'c': ['clang-format'],
+"\   'asm': ['gcc'],
+"\   'cpp': ['clang-format'],
+"\}
 
-let g:rustfmt_autosave = 1
-let g:ale_javascript_prettier_options = '--prose-wrap always'
-let g:ale_fix_on_save = 1
+"let g:rustfmt_autosave = 1
+"let g:ale_javascript_prettier_options = '--prose-wrap always'
+"let g:ale_fix_on_save = 1
 
 nnoremap <silent> <leader>m :make<cr>
 
@@ -379,7 +370,7 @@ let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg=bg 
 highlight SignColumn ctermbg=bg
 
-let g:coc_global_extensions = ['coc-clangd', 'coc-docker']
+let g:coc_global_extensions = ['coc-docker']
 
 
 " Update sign column every quarter second
@@ -628,6 +619,10 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
+let NERDTreeMapActivateNode='<tab>'
+
+
 
 
 

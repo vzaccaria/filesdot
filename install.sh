@@ -15,11 +15,19 @@ nix-env -iA \
 	nixpkgs.zsh \
 	nixpkgs.stow \
 	nixpkgs.curl \
-	nixpkgs.nodejs
+	nixpkgs.nodejs \
+	nixpkgs.fzf \
+        nixpkgs.antibody \
+        nixpkgs.coreutils \
+        nixpkgs.exa
 
 stow git
 stow neovim
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+stow zsh
+
+# bundle zsh plugins 
+antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 # nstall neovim plugins
 nvim --headless +PlugInstall +qall

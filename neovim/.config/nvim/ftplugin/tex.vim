@@ -1,9 +1,9 @@
 
 "Remember to open the tex file with nvr
-if has("nvim")
-  let g:vimtex_latexmk_progname = 'nvr'
-  let g:vimtex_compiler_progname = 'nvr'
-endif
+" if has("nvim")
+"   let g:vimtex_latexmk_progname = 'nvr'
+"   let g:vimtex_compiler_progname = 'nvr'
+" endif
 
 nnoremap <leader>v :VimtexView<CR>
 nnoremap <leader>b :VimtexCompile<CR>

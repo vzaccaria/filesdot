@@ -10,7 +10,7 @@ let g:fzf_action = {
 nnoremap <silent> <M-u> :History<cr>
 
 " quit,
-nnoremap <silent> <M-q> :q<cr>
+nnoremap <silent> <M-q> :wq<cr>
 nnoremap <silent> <M-w> :q<cr>
 nmap <leader>Q :qall!<CR>
 nmap <leader>W :wqall<CR>

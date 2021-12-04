@@ -32,6 +32,7 @@ set noshowcmd
 " When editing mails from neomutt use markdown
 augroup filetypedetect
     au BufRead,BufNewFile neomutt-* set filetype=markdown
+    au BufRead,BufNewFile *.zshrc set filetype=zsh
 augroup END
 
 
@@ -40,3 +41,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " Update sign column every quarter second
 set updatetime=250
+
+" Shows tab of buffers
+let g:airline#extensions#tabline#enabled = 1
+

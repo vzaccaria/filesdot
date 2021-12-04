@@ -32,7 +32,6 @@ colorscheme gruvbox
 
 " Generic, os specific sets
 if g:os == "Darwin" 
-        let g:markdown_folding = 1
         let g:rustfmt_autosave = 1
 elseif g:os == "Linux" 
 endif

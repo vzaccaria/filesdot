@@ -24,8 +24,10 @@ then
                 nixpkgs.fzf \
                 nixpkgs.antibody \
                 nixpkgs.coreutils \
-                nixpkgs.exa
-                nixpkgs.man
+                nixpkgs.exa \
+                nixpkgs.man  \
+                nixpkgs.ripgrep \
+                nixpkgs.gnumake
 else 
         # 'Darwin'
         brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa

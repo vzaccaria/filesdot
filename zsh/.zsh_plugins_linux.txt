@@ -1,0 +1,11 @@
+romkatv/powerlevel10k
+rupa/z
+
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+
+# Completion, still undecided
+zsh-users/zsh-completions
+# marlonrichert/zsh-autocomplete
+
+djui/alias-tips

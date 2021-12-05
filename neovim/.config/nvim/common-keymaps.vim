@@ -34,8 +34,8 @@ imap <M-o>c <c-g>u<Esc>[s1z=`]a<c-g>u
 nmap <M-o>c [s1z=<c-o>
 
 " move around buffers and tabs
-nnoremap <silent> <C-[> :tabprevious<CR>
-nnoremap <silent> <C-]> :tabnext<CR>
+nnoremap <silent> <M-[> :bnext<CR>
+nnoremap <silent> <M-]> :bprev<CR>
 nnoremap <leader>n :bnext <CR>
 nnoremap <leader>p :bprev <CR>
 

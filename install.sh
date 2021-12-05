@@ -27,10 +27,11 @@ then
                 nixpkgs.exa \
                 nixpkgs.man  \
                 nixpkgs.ripgrep \
-                nixpkgs.gnumake
+                nixpkgs.gnumake \
+                nixpkgs.diff-so-fancy
 else 
         # 'Darwin'
-        brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa
+        brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa diff-so-fancy
 fi
 
 stow git
@@ -39,8 +40,12 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 stow zsh
 stow tmux
 
-# bundle zsh plugins 
-antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+if [[ `uname -s` = 'Linux' ]] 
+then  
+        antibody bundle < ~/.zsh_plugins_linux.txt > ~/.zsh_plugins.sh
+else 
+        antibody bundle < ~/.zsh_plugins_darwin.txt > ~/.zsh_plugins.sh
+fi
 
 # nstall neovim plugins
 nvim --headless +PlugInstall +qall

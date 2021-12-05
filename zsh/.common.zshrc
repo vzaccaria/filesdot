@@ -1,8 +1,16 @@
 # Aliases 
 alias vi='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
-alias ls=exa
-alias l='exa -l'
+
+alias ls='exa --git --group-directories-first'
+alias l='ls -blF'
+alias ll='ls -al'
+alias llm='ll --sort=modified'
+alias la='ls -abghlmu'
+alias lx='ls -abghlmuHSU@'
+alias tree='exa --tree'
+
 alias ,s='git status'
+alias gd='git diff'
 alias mk='make -f makefile.mk'
 alias make='gmake'
 

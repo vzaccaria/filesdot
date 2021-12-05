@@ -13,8 +13,15 @@ bindkey -v
 source ${HOME}/.common.zshrc
 source ${HOME}/.git.zshrc
 
-if [[ `uname` = 'Linux' ]]; then  source ${HOME}/.linux.zshrc; fi
+if [[ `uname` = 'Linux' ]]; then  
+        source ${HOME}/.linux.zshrc; 
+fi
 
-if [[ `uname` = 'Darwin' ]]; then source ${HOME}/.darwin.zshrc; fi
+if [[ `uname` = 'Darwin' ]]; then 
+        source ${HOME}/.darwin.zshrc; 
+fi
 
+# Needed to start completion
+autoload -U compinit; 
+compinit;
 

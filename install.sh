@@ -28,7 +28,8 @@ then
                 nixpkgs.man  \
                 nixpkgs.ripgrep \
                 nixpkgs.gnumake \
-                nixpkgs.diff-so-fancy
+                nixpkgs.diff-so-fancy \
+                nixpkgs.less
 else 
         # 'Darwin'
         brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa diff-so-fancy

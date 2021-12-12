@@ -12,7 +12,6 @@ alias tree='exa --tree'
 alias ,s='git status'
 alias gd='git diff'
 alias mk='make -f makefile.mk'
-alias make='gmake'
 
 # Exports
 

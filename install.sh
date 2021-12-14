@@ -5,31 +5,36 @@
 
 if [[ `uname -s` = 'Linux' ]] 
 then  
+        if [[ `lsb_release -i -s` = 'Ubuntu' ]] 
+        then 
+             apt-get install -y git neovim tmux zsh stow curl nodejs fzf antibody \
+                                coreutils exa man ripgrep gnumake diff-so-fancy less
+        else
+                # this script assumes you have already installed Nix with a command like
+                # curl -L https://nixos.org/nix/install | sh
 
-        # this script assumes you have already installed Nix with a command like
-        # curl -L https://nixos.org/nix/install | sh
+                # source nix
+                . ~/.nix-profile/etc/profile.d/nix.sh
 
-        # source nix
-        . ~/.nix-profile/etc/profile.d/nix.sh
-
-        # install packages
-        nix-env -iA \
-                nixpkgs.git \
-                nixpkgs.neovim \
-                nixpkgs.tmux \
-                nixpkgs.zsh \
-                nixpkgs.stow \
-                nixpkgs.curl \
-                nixpkgs.nodejs \
-                nixpkgs.fzf \
-                nixpkgs.antibody \
-                nixpkgs.coreutils \
-                nixpkgs.exa \
-                nixpkgs.man  \
-                nixpkgs.ripgrep \
-                nixpkgs.gnumake \
-                nixpkgs.diff-so-fancy \
-                nixpkgs.less
+                # install packages
+                nix-env -iA \
+                        nixpkgs.git \
+                        nixpkgs.neovim \
+                        nixpkgs.tmux \
+                        nixpkgs.zsh \
+                        nixpkgs.stow \
+                        nixpkgs.curl \
+                        nixpkgs.nodejs \
+                        nixpkgs.fzf \
+                        nixpkgs.antibody \
+                        nixpkgs.coreutils \
+                        nixpkgs.exa \
+                        nixpkgs.man  \
+                        nixpkgs.ripgrep \
+                        nixpkgs.gnumake \
+                        nixpkgs.diff-so-fancy \
+                        nixpkgs.less
+        fi
 else 
         # 'Darwin'
         brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa diff-so-fancy grep

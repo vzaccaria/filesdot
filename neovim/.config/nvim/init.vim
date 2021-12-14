@@ -28,7 +28,7 @@ source ~/.config/nvim/git.vim
 source ~/.config/nvim/ale.vim
 source ~/.config/nvim/tex.vim
 
-colorscheme gruvbox
+silent! colorscheme gruvbox
 
 " Generic, os specific sets
 if g:os == "Darwin" 

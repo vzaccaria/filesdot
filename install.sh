@@ -7,8 +7,9 @@ if [[ `uname -s` = 'Linux' ]]
 then  
         if [[ `lsb_release -i -s` = 'Ubuntu' ]] 
         then 
-             apt-get install -y git neovim tmux zsh stow curl nodejs fzf antibody \
-                                coreutils exa man ripgrep gnumake diff-so-fancy less
+             apt-get install -y git neovim tmux zsh stow curl nodejs fzf  \
+                                coreutils man ripgrep gnumake less
+             curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
         else
                 # this script assumes you have already installed Nix with a command like
                 # curl -L https://nixos.org/nix/install | sh

@@ -32,7 +32,7 @@ then
                 nixpkgs.less
 else 
         # 'Darwin'
-        brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa diff-so-fancy
+        brew install git neovim tmux zsh stow curl nodejs fzf antibody coreutils exa diff-so-fancy grep
 fi
 
 stow git

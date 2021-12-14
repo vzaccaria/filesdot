@@ -47,7 +47,7 @@ if g:os == "Darwin"
         \   'json': ['prettier'],
         \   'c': ['clang-format'],
         \   'asm': ['gcc'],
-        \   'cpp': ['clang-format'],
+        \   'cpp': ['clang-format']
         \}
 
         let g:ale_javascript_prettier_options = '--prose-wrap always'

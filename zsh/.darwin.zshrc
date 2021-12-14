@@ -13,38 +13,44 @@ alias mc='cd "/Users/zaccaria/development/github/org-institutional/materiale-cor
 alias ,kill-emacs="ps ux | grep '[e]macs' | tr -s ' ' | cut -d ' ' -f2 | xargs kill -9"
 
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias ip='echo -n `ifconfig | ggrep -Po "(?<=inet )\d*\.\d*\.\d*\.\d*(?=.*broadcast)"`'
+
+alias ,net-this-ip='ip'
+
+alias ,x-this-display='echo "export DISPLAY=$(ip):0" | pbcopy'
+alias ,x-listen='socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"'
+alias ,x-start='open -a "XQuartz" && ,x-this-display && ,x-listen'
 
 ,path-real() {
-  grealpath "$1" | tr -d '\n' | pbcopy
+        grealpath "$1" | tr -d '\n' | pbcopy
 }
 
 alias rp=',path-real'
 
-
 # Functions
 fzo() {
-  local out file key
-  IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
-  key=$(head -1 <<< "$out")
-  file=$(head -2 <<< "$out" | tail -1)
-  if [ -n "$file" ]; then
-    [ "$key" = ctrl-o ] && ${EDITOR:-vim} "$file" ||  open "$file" 
-  fi
+        local out file key
+        IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+        key=$(head -1 <<<"$out")
+        file=$(head -2 <<<"$out" | tail -1)
+        if [ -n "$file" ]; then
+                [ "$key" = ctrl-o ] && ${EDITOR:-vim} "$file" || open "$file"
+        fi
 }
 
 alias ,fzf-open-file='fzo'
 
 fzd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  open "$dir"
+        local dir
+        dir=$(find ${1:-.} -path '*/\.*' -prune \
+                -o -type d -print 2>/dev/null | fzf +m) &&
+                open "$dir"
 }
 
 alias ,fzf-open-dir='fzd'
 
 ,tower-this() {
-    /Applications/Tower.app/Contents/MacOS/gittower "$(git rev-parse --show-toplevel)"
+        /Applications/Tower.app/Contents/MacOS/gittower "$(git rev-parse --show-toplevel)"
 }
 
 # Create URL for various tasks through Gotty and the browser
@@ -54,7 +60,7 @@ ntmuxz() {
         shellcomm="${@:2}"
         command="tmux new-session -c $directory zsh --interactive -c '$shellcomm'"
         ecommand=$(echo $command | jq -sRr @uri)
-        echo "http://localhost:3005/?arg=-c&arg=($ecommand)"  | pbcopy
+        echo "http://localhost:3005/?arg=-c&arg=($ecommand)" | pbcopy
 }
 
 ntmuxc() {
@@ -62,7 +68,7 @@ ntmuxc() {
         shellcomm="${@:2}"
         command="tmux new-session -c $directory $shellcomm"
         ecommand=$(echo $command | jq -sRr @uri)
-        echo "http://localhost:3005/?arg=-c&arg=($ecommand)"  | pbcopy
+        echo "http://localhost:3005/?arg=-c&arg=($ecommand)" | pbcopy
 }
 
 nemacs() {
@@ -79,28 +85,26 @@ nvi() {
         ntmuxc $currentdir $command
 }
 
-
 ntmux() {
         ntmuxc $1 ""
 }
 
-
 # Change working directory to the top-most Finder window location
 ,cd-to-finder() { # short for `cdfinder`
-  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" || exit
+        cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" || exit
 }
 
 ,mail-compose() {
-    pbpaste | sed 's/^/> /' > ~/temp.md
-    vi ~/temp.md 
-    cat ~/temp.md | pbcopy
+        pbpaste | sed 's/^/> /' >~/temp.md
+        vi ~/temp.md
+        cat ~/temp.md | pbcopy
 }
 
 keynote2pdf() {
-FILE_INPUT=`grealpath "$1"`
-FILE_OUTPUT=`echo $FILE_INPUT | sed "s/\.key$/\.pdf/"`
-    echo Exporting $FILE_INPUT to pdf
-osascript << EOF
+        FILE_INPUT=$(grealpath "$1")
+        FILE_OUTPUT=$(echo $FILE_INPUT | sed "s/\.key$/\.pdf/")
+        echo Exporting $FILE_INPUT to pdf
+        osascript <<EOF
       tell application "System Events"
         tell application "Keynote"
           activate

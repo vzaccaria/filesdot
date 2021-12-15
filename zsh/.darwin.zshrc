@@ -1,5 +1,9 @@
 export PATH=/usr/local/bin:$PATH
 
+alias ls='exa --git --group-directories-first'
+alias tree='exa --tree'
+
+
 # Aliases
 alias wk='pkill -f watchman org2pdf jslatex tikz2pdf chromix'
 alias ,watchers-kill='pkill -f watchman org2pdf jslatex tikz2pdf chromix'

@@ -1,4 +1,5 @@
-romkatv/powerlevel10k
+# romkatv/powerlevel10k
+miekg/lean
 rupa/z
 
 zsh-users/zsh-autosuggestions

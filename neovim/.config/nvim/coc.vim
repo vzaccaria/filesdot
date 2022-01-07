@@ -180,7 +180,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 if g:os == "Darwin" 
-        let g:coc_global_extensions = ['coc-clangd', 'coc-docker']
+        let g:coc_global_extensions = ['coc-clangd', 'coc-docker', 'coc-tsserver']
 elseif g:os == "Linux" 
         let g:coc_global_extensions = ['']
 endif

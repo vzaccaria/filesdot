@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/Users/zaccaria/.local/bin:$PATH
+export PATH=/usr/local/bin:/Users/zaccaria/.local/bin:/usr/local/opt/llvm/bin:$PATH
 
 alias ls='exa --git --group-directories-first'
 alias tree='exa --tree'
